@@ -1,0 +1,57 @@
+{
+  "name": "use-merge-state",
+  "version": "0.0.0",
+  "description": "A useState variant hook that merges updates.",
+  "author": "Marc Bouchenoire",
+  "license": "MIT",
+  "repository": "https://github.com/bouchenoiremarc/use-merge-state",
+  "keywords": [
+    "react",
+    "hook",
+    "merge",
+    "rest",
+    "spread",
+    "state"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/use-merge-state.esm.js",
+  "typings": "dist/use-merge-state.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "eslint src --fix",
+    "prepare": "yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}
