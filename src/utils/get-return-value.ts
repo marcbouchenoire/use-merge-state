@@ -1,12 +1,12 @@
 import { isFunction } from "../guards"
 
 export const getReturnValue = <V, A>(
-  value: V | ((argument: A) => V),
-  argument: A
+  value: V | ((...args: A[]) => V),
+  ...args: A[]
 ): V => {
   if (isFunction(value)) {
-    return value(argument)
+    return value(...args)
   } else {
-    return value
+    return value as V
   }
 }
