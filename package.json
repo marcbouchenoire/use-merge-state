@@ -26,7 +26,8 @@
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "test": "tsdx test",
     "lint": "eslint src --fix",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "clean": "tsdx test --clearCache && rimraf node_modules"
   },
   "husky": {
     "hooks": {
@@ -50,6 +51,7 @@
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-test-renderer": "^17.0.1",
+    "rimraf": "^3.0.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
     "typescript": "^4.1.3"
