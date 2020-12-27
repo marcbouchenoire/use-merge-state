@@ -68,3 +68,37 @@ setState((previousState) =>
  * → [1, 2, 3, 4, 2, 4, 6, 8]
  */
 ```
+
+## Options
+
+A secondary `options` argument can be set either on instances, updates or both to tailor the behavior of `useMergeState`.
+
+```tsx
+/**
+ * 🛠️
+ *
+ * Setting `options` on a `useMergeState` instance will
+ * set options for all `setState` updates of this instance.
+ */
+const [state, setState] = useMergeState([1, 2], {
+  merge: false
+})
+
+/**
+ * 🛠️
+ *
+ * Setting `options` on a `setState` update will override
+ * any previously set options for this specific update.
+ */
+setState([3, 4], {
+  merge: true
+})
+```
+
+#### `merge`
+
+```tsx
+merge?: boolean = true
+```
+
+Setting `merge` to `false` will disable merging—essentially converting `useMergeState` back into `useState`.
