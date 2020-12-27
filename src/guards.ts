@@ -5,11 +5,11 @@ export const isArray = Array.isArray
 export const isFunction = <T extends PlainFunction>(
   value: T | unknown
 ): value is PlainFunction<Unpack<Parameters<T>>, ReturnType<T>> => {
-  return (value ?? null) instanceof Function
+  return value instanceof Function
 }
 
 export const isMap = <T, U>(value: Map<T, U> | unknown): value is Map<T, U> => {
-  return (value ?? null) instanceof Map
+  return value instanceof Map
 }
 
 export const isNumber = (value: number | unknown): value is number => {
@@ -23,5 +23,5 @@ export const isPlainObject = <T, U extends PlainObject>(
 }
 
 export const isSet = <T>(value: Set<T> | unknown): value is Set<T> => {
-  return (value ?? null) instanceof Set
+  return value instanceof Set
 }
