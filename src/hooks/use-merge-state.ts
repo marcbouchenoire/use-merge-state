@@ -1,4 +1,4 @@
-import { SetStateAction, useCallback, useState } from "react"
+import { SetStateAction, useCallback, useMemo, useState } from "react"
 import { DispatchWithOptions } from "../types"
 import { getReturnValue, merge } from "../utils"
 
@@ -7,7 +7,7 @@ interface MergeOptions {
 }
 
 interface useMergeState {
-  <S>(initialState: S | (() => S)): [
+  <S>(initialState: S | (() => S), options?: MergeOptions): [
     S,
     DispatchWithOptions<SetStateAction<S>, MergeOptions>
   ]
@@ -22,18 +22,23 @@ const defaultOptions: MergeOptions = {
 }
 
 export const useMergeState: useMergeState = <S>(
-  initialState?: any
+  initialState?: any,
+  options: MergeOptions = defaultOptions
 ): [S, DispatchWithOptions<SetStateAction<S>>] => {
   const [state, setState] = useState<S>(initialState)
+  const instanceOptions = useMemo(
+    () => ({ ...defaultOptions, ...(options ?? {}) }),
+    [options]
+  )
 
   const setMergeState: DispatchWithOptions<
     SetStateAction<S>,
     MergeOptions
   > = useCallback(
-    (value: SetStateAction<S>, options: MergeOptions = defaultOptions) => {
-      const { merge: shouldMerge } = { ...defaultOptions, ...(options ?? {}) }
+    (value: SetStateAction<S>, options?: MergeOptions) => {
+      const updateOptions = { ...instanceOptions, ...(options ?? {}) }
 
-      if (shouldMerge) {
+      if (updateOptions.merge) {
         setState((previousState: S) => {
           return merge(previousState, getReturnValue(value, previousState))
         })
@@ -41,7 +46,7 @@ export const useMergeState: useMergeState = <S>(
         setState(value)
       }
     },
-    []
+    [instanceOptions]
   )
 
   return [state, setMergeState]

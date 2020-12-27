@@ -132,6 +132,39 @@ describe("useMergeState", () => {
     expect(stateGh).toStrictEqual(ggh)
   })
 
+  test("should accept options either on instances, on updates or on both", () => {
+    const { result } = renderHook(() => useMergeState(a))
+    const { result: resultInstance } = renderHook(() =>
+      useMergeState(a, { merge: false })
+    )
+    const { result: resultUpdate } = renderHook(() => useMergeState(a))
+    const { result: resultBoth } = renderHook(() =>
+      useMergeState(a, { merge: false })
+    )
+
+    act(() => {
+      const [, set] = result.current
+      const [, setInstance] = resultInstance.current
+      const [, setUpdate] = resultUpdate.current
+      const [, setBoth] = resultBoth.current
+
+      set(b)
+      setInstance(b)
+      setUpdate(b, { merge: false })
+      setBoth(b, { merge: true })
+    })
+
+    const [state] = result.current
+    const [stateInstance] = resultInstance.current
+    const [stateUpdate] = resultUpdate.current
+    const [stateBoth] = resultBoth.current
+
+    expect(state).toStrictEqual(ab)
+    expect(stateInstance).toStrictEqual(b)
+    expect(stateUpdate).toStrictEqual(b)
+    expect(stateBoth).toStrictEqual(ab)
+  })
+
   test("should override when the merge option is set to false", () => {
     const { result: resultAb } = renderHook(() => useMergeState(a))
     const { result: resultCd } = renderHook(() => useMergeState(c))
