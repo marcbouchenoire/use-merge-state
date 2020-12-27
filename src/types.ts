@@ -14,3 +14,8 @@ export type Spread<A extends PlainObject, B extends PlainObject> = Except<
   Extract<keyof A, keyof B>
 > &
   B
+
+export interface DispatchWithOptions<A, O = undefined> {
+  (value: A): void
+  (value: A, options?: O): void
+}

@@ -131,4 +131,33 @@ describe("useMergeState", () => {
     expect(stateEf).toStrictEqual(eef)
     expect(stateGh).toStrictEqual(ggh)
   })
+
+  test("should override when the merge option is set to false", () => {
+    const { result: resultAb } = renderHook(() => useMergeState(a))
+    const { result: resultCd } = renderHook(() => useMergeState(c))
+    const { result: resultEf } = renderHook(() => useMergeState(e))
+    const { result: resultGh } = renderHook(() => useMergeState(g))
+
+    act(() => {
+      const [, setAb] = resultAb.current
+      const [, setCd] = resultCd.current
+      const [, setEf] = resultEf.current
+      const [, setGh] = resultGh.current
+
+      setAb(b, { merge: false })
+      setCd(d, { merge: false })
+      setEf(f, { merge: false })
+      setGh(h, { merge: false })
+    })
+
+    const [stateAb] = resultAb.current
+    const [stateCd] = resultCd.current
+    const [stateEf] = resultEf.current
+    const [stateGh] = resultGh.current
+
+    expect(stateAb).toStrictEqual(b)
+    expect(stateCd).toStrictEqual(d)
+    expect(stateEf).toStrictEqual(f)
+    expect(stateGh).toStrictEqual(h)
+  })
 })
