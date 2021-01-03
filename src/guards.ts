@@ -2,26 +2,26 @@ import { PlainFunction, PlainObject, Unpack } from "./types"
 
 export const isArray = Array.isArray
 
-export const isFunction = <T extends PlainFunction>(
+export function isFunction<T extends PlainFunction>(
   value: T | unknown
-): value is PlainFunction<Unpack<Parameters<T>>, ReturnType<T>> => {
+): value is PlainFunction<Unpack<Parameters<T>>, ReturnType<T>> {
   return value instanceof Function
 }
 
-export const isMap = <T, U>(value: Map<T, U> | unknown): value is Map<T, U> => {
+export function isMap<T, U>(value: Map<T, U> | unknown): value is Map<T, U> {
   return value instanceof Map
 }
 
-export const isNumber = (value: number | unknown): value is number => {
+export function isNumber(value: number | unknown): value is number {
   return typeof value === "number"
 }
 
-export const isPlainObject = <T, U extends PlainObject>(
+export function isPlainObject<T, U extends PlainObject>(
   value: PlainObject<T> | U | unknown
-): value is PlainObject<T> | U => {
+): value is PlainObject<T> | U {
   return typeof value === "object" && value?.constructor === Object
 }
 
-export const isSet = <T>(value: Set<T> | unknown): value is Set<T> => {
+export function isSet<T>(value: Set<T> | unknown): value is Set<T> {
   return value instanceof Set
 }
