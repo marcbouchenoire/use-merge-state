@@ -6,25 +6,22 @@ interface MergeOptions {
   merge?: boolean
 }
 
-interface useMergeState {
-  <S>(initialState: S | (() => S), options?: MergeOptions): [
-    S,
-    DispatchWithOptions<SetStateAction<S>, MergeOptions>
-  ]
-  <S = undefined>(): [
-    S | undefined,
-    DispatchWithOptions<SetStateAction<S | undefined>, MergeOptions>
-  ]
-}
-
 const defaultOptions: MergeOptions = {
   merge: true
 }
 
-export const useMergeState: useMergeState = <S>(
+export function useMergeState<S>(
+  initialState: S | (() => S),
+  options?: MergeOptions
+): [S, DispatchWithOptions<SetStateAction<S>, MergeOptions>]
+export function useMergeState<S = undefined>(): [
+  S | undefined,
+  DispatchWithOptions<SetStateAction<S | undefined>, MergeOptions>
+]
+export function useMergeState<S>(
   initialState?: any,
   options: MergeOptions = defaultOptions
-): [S, DispatchWithOptions<SetStateAction<S>>] => {
+): [S, DispatchWithOptions<SetStateAction<S>>] {
   const [state, setState] = useState<S>(initialState)
   const instanceOptions = useMemo(
     () => ({ ...defaultOptions, ...(options ?? {}) }),
