@@ -17,18 +17,20 @@
     "dist",
     "src"
   ],
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/use-merge-state.esm.js",
-  "typings": "dist/use-merge-state.d.ts",
+  "source": "./src/index.ts",
+  "main": "./dist/use-merge-state.js",
+  "umd:main": "./dist/use-merge-state.umd.js",
+  "module": "./dist/use-merge-state.module.js",
+  "exports": "./dist/use-merge-state.modern.js",
+  "esmodule": "./dist/use-merge-state.modern.js",
+  "typings": "./dist/use-merge-state.d.ts",
   "scripts": {
-    "start": "tsdx watch --tsconfig tsconfig.build.json",
-    "build": "tsdx build --tsconfig tsconfig.build.json",
-    "test": "tsdx test",
+    "build": "microbundle --tsconfig tsconfig.build.json",
+    "clean": "jest --clearCache && rimraf node_modules",
     "lint": "eslint src --fix",
-    "prepare": "yarn build",
+    "prepare": "rimraf dist && yarn build",
     "release": "yarn login && np",
-    "clean": "tsdx test --clearCache && rimraf node_modules"
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.7.0",
+    "@types/jest": "^26.0.19",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
@@ -48,13 +51,15 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.6",
+    "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
+    "microbundle": "^0.13.0",
     "np": "^7.1.0",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.2",
-    "tsdx": "^0.14.1",
+    "ts-jest": "^26.4.4",
     "tslib": "^2.0.3",
     "typescript": "^4.1.3"
   },
