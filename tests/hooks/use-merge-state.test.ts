@@ -64,7 +64,7 @@ describe("useMergeState", () => {
     const [stateWithInitialValue] = resultWithInitialValue.current
     const [stateWithLazyInitialValue] = resultWithLazyInitialValue.current
 
-    expect(state).toBe(undefined)
+    expect(state).toBeUndefined()
     expect(stateWithInitialValue).toBe(string)
     expect(stateWithLazyInitialValue).toBe(string)
   })

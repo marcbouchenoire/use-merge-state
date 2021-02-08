@@ -20,6 +20,6 @@ describe("getReturnValue", () => {
   test("should return its result if a function", () => {
     expect(getReturnValue(add, 2, 2)).not.toBe(add)
     expect(getReturnValue(add, 2, 2)).toBe(4)
-    expect(getReturnValue(add)).toBe(undefined)
+    expect(getReturnValue(add)).toBeUndefined()
   })
 })
