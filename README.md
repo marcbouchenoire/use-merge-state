@@ -31,65 +31,42 @@ Use it as a drop-in `useState` replacement.
 ```tsx
 const [state, setState] = useMergeState([1, 2])
 
-/**
- * 💬
- *
- * → state: [1, 2]
- */
+// state: [1, 2]
+```
 
-/**
- * 🗜️
- *
- * Setting arrays, plain objects, maps or sets will merge
- * them with the current state instead of overriding it.
- * Other types will be overridden similarly to `useState`.
- */
+Setting arrays, plain objects, maps or sets will merge them with the current state instead of overriding it. Other types will be overridden similarly to `useState`.
+
+```tsx
 setState([3, 4])
 
-/**
- * 💬
- *
- * → state: [1, 2, 3, 4]
- */
+// state: [1, 2, 3, 4]
+```
 
-/**
- * 🔌
- *
- * Returning a functional update will run as expected and
- * its result will then be merged with the current state.
- */
+Returning a functional update will run as expected and its result will then be merged with the current state.
+
+```tsx
 setState((previousState) =>
   previousState.map((previousNumber) => previousNumber * 2)
 )
 
-/**
- * 💬
- *
- * → state: [1, 2, 3, 4, 2, 4, 6, 8]
- */
+// state: [1, 2, 3, 4, 2, 4, 6, 8]
 ```
 
 ## Options
 
-A secondary `options` argument can be set either on instances, updates or both to tailor the behavior of `useMergeState`.
+A secondary `options` argument can be set either on instances, updates or both to tweak the behavior of `useMergeState`.
+
+Setting `options` on a `useMergeState` instance will set options for all `setState` updates of this instance.
 
 ```tsx
-/**
- * 🛠️
- *
- * Setting `options` on a `useMergeState` instance will
- * set options for all `setState` updates of this instance.
- */
 const [state, setState] = useMergeState([1, 2], {
   merge: false
 })
+```
 
-/**
- * 🛠️
- *
- * Setting `options` on a `setState` update will override
- * any previously set options for this specific update.
- */
+Setting `options` on a `setState` update will override any previously set options for this specific update.
+
+```tsx
 setState([3, 4], {
   merge: true
 })
