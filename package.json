@@ -25,7 +25,7 @@
   "exports": "./dist/use-merge-state.modern.js",
   "esmodule": "./dist/use-merge-state.modern.js",
   "esnext": "./dist/use-merge-state.modern.js",
-  "types": "./dist/use-merge-state.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "microbundle --tsconfig tsconfig.build.json",
     "clean": "jest --clearCache && rimraf node_modules",
