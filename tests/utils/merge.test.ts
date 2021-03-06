@@ -1,4 +1,4 @@
-import { merge } from "../../src/utils"
+import { merge } from "../../src/utils/merge"
 import { boolean, fun, number, string } from "../constants"
 
 const a = [number, boolean]

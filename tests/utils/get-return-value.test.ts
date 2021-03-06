@@ -1,5 +1,5 @@
 import { isNumber } from "../../src/guards"
-import { getReturnValue } from "../../src/utils"
+import { getReturnValue } from "../../src/utils/get-return-value"
 import { boolean, number, string } from "../constants"
 
 const add = (a?: number, b?: number) => {

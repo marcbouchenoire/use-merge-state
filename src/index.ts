@@ -1,2 +1,2 @@
-export { merge } from "./utils"
-export { useMergeState } from "./hooks"
+export { merge } from "./utils/merge"
+export { useMergeState } from "./hooks/use-merge-state"
