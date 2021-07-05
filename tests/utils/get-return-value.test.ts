@@ -3,11 +3,7 @@ import { getReturnValue } from "../../src/utils/get-return-value"
 import { boolean, number, string } from "../constants"
 
 const add = (a?: number, b?: number) => {
-  if (isNumber(a) && isNumber(b)) {
-    return a + b
-  } else {
-    return undefined
-  }
+  return isNumber(a) && isNumber(b) ? a + b : undefined
 }
 
 describe("getReturnValue", () => {
