@@ -2,7 +2,7 @@
 
 🗜️ A `useState` variant hook that merges updates from arrays, plain objects, maps or sets.
 
-[![npm](https://img.shields.io/npm/v/use-merge-state?color=%2385f)](https://www.npmjs.com/package/use-merge-state) [![gzipped](https://img.shields.io/bundlephobia/minzip/use-merge-state?label=gzipped&color=%23d5e)](https://www.npmjs.com/package/use-merge-state) [![license](https://img.shields.io/github/license/bouchenoiremarc/use-merge-state?color=%23e48)](https://github.com/bouchenoiremarc/use-merge-state/blob/main/LICENSE)
+[![build](https://github.com/bouchenoiremarc/use-merge-state/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bouchenoiremarc/use-merge-state/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/use-merge-state?color=%230cf)](https://www.npmjs.com/package/use-merge-state) [![gzipped](https://img.shields.io/bundlephobia/minzip/use-merge-state?label=gzipped&color=%2385f)](https://www.npmjs.com/package/use-merge-state) [![license](https://img.shields.io/github/license/bouchenoiremarc/use-merge-state?color=%23e4b)](https://github.com/bouchenoiremarc/use-merge-state/blob/main/LICENSE)
 
 ## Installation
 
