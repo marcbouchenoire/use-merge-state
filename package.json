@@ -20,11 +20,15 @@
   "sideEffects": false,
   "source": "./src/index.ts",
   "main": "./dist/use-merge-state.js",
-  "umd:main": "./dist/use-merge-state.umd.js",
+  "unpkg": "./dist/use-merge-state.umd.js",
   "module": "./dist/use-merge-state.module.js",
-  "exports": "./dist/use-merge-state.modern.js",
-  "esmodule": "./dist/use-merge-state.modern.js",
-  "esnext": "./dist/use-merge-state.modern.js",
+  "exports": {
+    ".": {
+      "require": "./dist/use-merge-state.js",
+      "import": "./dist/use-merge-state.modern.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "types": "./dist/index.d.ts",
   "lint-staged": {
     "**/*.{ts,tsx}": [
