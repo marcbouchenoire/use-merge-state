@@ -25,7 +25,7 @@ export function useMergeState<S>(
 ): [S, DispatchWithOptions<SetStateAction<S>>] {
   const [state, setState] = useState<S>(initialState)
   const instanceOptions = useMemo(
-    () => ({ ...defaultOptions, ...(options ?? {}) }),
+    () => ({ ...defaultOptions, ...options }),
     [options]
   )
 
@@ -34,7 +34,7 @@ export function useMergeState<S>(
     MergeOptions
   > = useCallback(
     (value: SetStateAction<S>, options?: MergeOptions) => {
-      const updateOptions = { ...instanceOptions, ...(options ?? {}) }
+      const updateOptions = { ...instanceOptions, ...options }
 
       if (updateOptions.merge) {
         setState((previousState: S) => {

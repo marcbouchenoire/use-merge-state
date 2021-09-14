@@ -14,9 +14,9 @@ const b = [number * 2]
 const c: CD = { a: number, b: boolean }
 const d: CD = { a: string, c: number }
 
-const e = new Map<string | number, string | number>()
+const e = new Map<number | string, number | string>()
 e.set(string, number)
-const f = new Map<string | number, string | number>()
+const f = new Map<number | string, number | string>()
 f.set(number, string)
 
 const g = new Set<number | string>()

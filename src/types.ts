@@ -9,13 +9,10 @@ export type Except<T extends PlainObject, K extends keyof T> = Pick<
   Exclude<keyof T, K>
 >
 
-export type Spread<A extends PlainObject, B extends PlainObject> = Except<
-  A,
-  Extract<keyof A, keyof B>
-> &
-  B
+export type Spread<A extends PlainObject, B extends PlainObject> = B &
+  Except<A, Extract<keyof A, keyof B>>
 
 export interface DispatchWithOptions<A, O = undefined> {
   (value: A): void
-  (value: A, options?: O): void
+  (value: A, options?: O): void // eslint-disable-line @typescript-eslint/unified-signatures
 }
