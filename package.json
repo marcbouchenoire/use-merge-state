@@ -1,6 +1,6 @@
 {
   "name": "use-merge-state",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "A useState variant hook that merges updates.",
   "author": "Marc Bouchenoire",
   "license": "MIT",
