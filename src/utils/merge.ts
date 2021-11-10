@@ -1,5 +1,5 @@
 import { isArray, isMap, isPlainObject, isSet } from "../guards"
-import { Spread, PlainObject } from "../types"
+import { PlainObject, Spread } from "../types"
 
 interface MergeArrays {
   <A, B>(a: A[], b: B[]): (A | B)[]
