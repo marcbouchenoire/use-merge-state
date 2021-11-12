@@ -8,21 +8,19 @@
 
 #### Skypack
 
-```html
-<script type="module">
-  import { useMergeState } from "https://cdn.skypack.dev/use-merge-state"
-</script>
+```javascript
+import { useMergeState } from "https://cdn.skypack.dev/use-merge-state"
 ```
 
 #### Yarn
 
-```sh
+```bash
 yarn add use-merge-state
 ```
 
 #### npm
 
-```sh
+```bash
 npm install use-merge-state
 ```
 
@@ -30,13 +28,13 @@ npm install use-merge-state
 
 Import `useMergeState`.
 
-```tsx
+```typescript
 import { useMergeState } from "use-merge-state"
 ```
 
 Use it as a drop-in `useState` replacement.
 
-```tsx
+```typescript
 const [state, setState] = useMergeState([1, 2])
 
 // state: [1, 2]
@@ -44,7 +42,7 @@ const [state, setState] = useMergeState([1, 2])
 
 Setting arrays, plain objects, maps or sets will merge them with the current state instead of overriding it. Other types will be overridden similarly to `useState`.
 
-```tsx
+```typescript
 setState([3, 4])
 
 // state: [1, 2, 3, 4]
@@ -52,7 +50,7 @@ setState([3, 4])
 
 Returning a functional update will run as expected and its result will then be merged with the current state.
 
-```tsx
+```typescript
 setState((previousState) =>
   previousState.map((previousNumber) => previousNumber * 2)
 )
@@ -66,7 +64,7 @@ A secondary `options` argument can be set either on instances, updates or both t
 
 Setting `options` on a `useMergeState` instance will set options for all `setState` updates of this instance.
 
-```tsx
+```typescript
 const [state, setState] = useMergeState([1, 2], {
   merge: false
 })
@@ -74,7 +72,7 @@ const [state, setState] = useMergeState([1, 2], {
 
 Setting `options` on a `setState` update will override any previously set options for this specific update.
 
-```tsx
+```typescript
 setState([3, 4], {
   merge: true
 })
@@ -82,7 +80,7 @@ setState([3, 4], {
 
 #### `merge`
 
-```tsx
+```typescript
 merge?: boolean = true
 ```
 
