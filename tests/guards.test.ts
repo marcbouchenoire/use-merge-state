@@ -1,3 +1,4 @@
+import * as assert from "uvu/assert"
 import {
   isArray,
   isFunction,
@@ -16,99 +17,100 @@ import {
   set,
   string
 } from "./constants"
+import { describe } from "./helpers"
 
-describe("isArray", () => {
-  test("should return true for arrays", () => {
-    expect(isArray(array)).toBeTruthy()
+describe("isArray", (it) => {
+  it("should return true for arrays", () => {
+    assert.equal(isArray(array), true)
   })
 
-  test("should return false for any other types", () => {
-    expect(isArray(boolean)).toBeFalsy()
-    expect(isArray(fun)).toBeFalsy()
-    expect(isArray(map)).toBeFalsy()
-    expect(isArray(number)).toBeFalsy()
-    expect(isArray(object)).toBeFalsy()
-    expect(isArray(set)).toBeFalsy()
-    expect(isArray(string)).toBeFalsy()
-  })
-})
-
-describe("isFunction", () => {
-  test("should return true for functions", () => {
-    expect(isFunction(fun)).toBeTruthy()
-  })
-
-  test("should return false for any other types", () => {
-    expect(isFunction(array)).toBeFalsy()
-    expect(isFunction(boolean)).toBeFalsy()
-    expect(isFunction(map)).toBeFalsy()
-    expect(isFunction(number)).toBeFalsy()
-    expect(isFunction(object)).toBeFalsy()
-    expect(isFunction(set)).toBeFalsy()
-    expect(isFunction(string)).toBeFalsy()
+  it("should return false for any other types", () => {
+    assert.equal(isArray(boolean), false)
+    assert.equal(isArray(fun), false)
+    assert.equal(isArray(map), false)
+    assert.equal(isArray(number), false)
+    assert.equal(isArray(object), false)
+    assert.equal(isArray(set), false)
+    assert.equal(isArray(string), false)
   })
 })
 
-describe("isMap", () => {
-  test("should return true for maps", () => {
-    expect(isMap(map)).toBeTruthy()
+describe("isFunction", (it) => {
+  it("should return true for functions", () => {
+    assert.equal(isFunction(fun), true)
   })
 
-  test("should return false for any other types", () => {
-    expect(isMap(array)).toBeFalsy()
-    expect(isMap(boolean)).toBeFalsy()
-    expect(isMap(fun)).toBeFalsy()
-    expect(isMap(number)).toBeFalsy()
-    expect(isMap(object)).toBeFalsy()
-    expect(isMap(set)).toBeFalsy()
-    expect(isMap(string)).toBeFalsy()
-  })
-})
-
-describe("isNumber", () => {
-  test("should return true for numbers", () => {
-    expect(isNumber(number)).toBeTruthy()
-  })
-
-  test("should return false for any other types", () => {
-    expect(isNumber(array)).toBeFalsy()
-    expect(isNumber(boolean)).toBeFalsy()
-    expect(isNumber(fun)).toBeFalsy()
-    expect(isNumber(map)).toBeFalsy()
-    expect(isNumber(object)).toBeFalsy()
-    expect(isNumber(set)).toBeFalsy()
-    expect(isNumber(string)).toBeFalsy()
+  it("should return false for any other types", () => {
+    assert.equal(isFunction(array), false)
+    assert.equal(isFunction(boolean), false)
+    assert.equal(isFunction(map), false)
+    assert.equal(isFunction(number), false)
+    assert.equal(isFunction(object), false)
+    assert.equal(isFunction(set), false)
+    assert.equal(isFunction(string), false)
   })
 })
 
-describe("isPlainObject", () => {
-  test("should return true for plain objects", () => {
-    expect(isPlainObject(object)).toBeTruthy()
+describe("isMap", (it) => {
+  it("should return true for maps", () => {
+    assert.equal(isMap(map), true)
   })
 
-  test("should return false for any other types", () => {
-    expect(isPlainObject(array)).toBeFalsy()
-    expect(isPlainObject(boolean)).toBeFalsy()
-    expect(isPlainObject(fun)).toBeFalsy()
-    expect(isPlainObject(map)).toBeFalsy()
-    expect(isPlainObject(number)).toBeFalsy()
-    expect(isPlainObject(set)).toBeFalsy()
-    expect(isPlainObject(string)).toBeFalsy()
+  it("should return false for any other types", () => {
+    assert.equal(isMap(array), false)
+    assert.equal(isMap(boolean), false)
+    assert.equal(isMap(fun), false)
+    assert.equal(isMap(number), false)
+    assert.equal(isMap(object), false)
+    assert.equal(isMap(set), false)
+    assert.equal(isMap(string), false)
   })
 })
 
-describe("isSet", () => {
-  test("should return true for sets", () => {
-    expect(isSet(set)).toBeTruthy()
+describe("isNumber", (it) => {
+  it("should return true for numbers", () => {
+    assert.equal(isNumber(number), true)
   })
 
-  test("should return false for any other types", () => {
-    expect(isSet(array)).toBeFalsy()
-    expect(isSet(boolean)).toBeFalsy()
-    expect(isSet(fun)).toBeFalsy()
-    expect(isSet(map)).toBeFalsy()
-    expect(isSet(number)).toBeFalsy()
-    expect(isSet(object)).toBeFalsy()
-    expect(isSet(string)).toBeFalsy()
+  it("should return false for any other types", () => {
+    assert.equal(isNumber(array), false)
+    assert.equal(isNumber(boolean), false)
+    assert.equal(isNumber(fun), false)
+    assert.equal(isNumber(map), false)
+    assert.equal(isNumber(object), false)
+    assert.equal(isNumber(set), false)
+    assert.equal(isNumber(string), false)
+  })
+})
+
+describe("isPlainObject", (it) => {
+  it("should return true for plain objects", () => {
+    assert.equal(isPlainObject(object), true)
+  })
+
+  it("should return false for any other types", () => {
+    assert.equal(isPlainObject(array), false)
+    assert.equal(isPlainObject(boolean), false)
+    assert.equal(isPlainObject(fun), false)
+    assert.equal(isPlainObject(map), false)
+    assert.equal(isPlainObject(number), false)
+    assert.equal(isPlainObject(set), false)
+    assert.equal(isPlainObject(string), false)
+  })
+})
+
+describe("isSet", (it) => {
+  it("should return true for sets", () => {
+    assert.equal(isSet(set), true)
+  })
+
+  it("should return false for any other types", () => {
+    assert.equal(isSet(array), false)
+    assert.equal(isSet(boolean), false)
+    assert.equal(isSet(fun), false)
+    assert.equal(isSet(map), false)
+    assert.equal(isSet(number), false)
+    assert.equal(isSet(object), false)
+    assert.equal(isSet(string), false)
   })
 })

@@ -1,6 +1,8 @@
 import { act, renderHook } from "@testing-library/react-hooks"
+import * as assert from "uvu/assert"
 import { merge, useMergeState } from "../../src"
 import { boolean, number, string } from "../constants"
+import { describe } from "../helpers"
 
 interface CD {
   a?: number | string
@@ -50,8 +52,8 @@ ggh.add(number)
 ggh.add(number)
 ggh.add(string)
 
-describe("useMergeState", () => {
-  test("should accept an initial value", () => {
+describe("useMergeState", (it) => {
+  it("should accept an initial value", () => {
     const { result } = renderHook(() => useMergeState())
     const { result: resultWithInitialValue } = renderHook(() =>
       useMergeState(string)
@@ -64,12 +66,12 @@ describe("useMergeState", () => {
     const [stateWithInitialValue] = resultWithInitialValue.current
     const [stateWithLazyInitialValue] = resultWithLazyInitialValue.current
 
-    expect(state).toBeUndefined()
-    expect(stateWithInitialValue).toBe(string)
-    expect(stateWithLazyInitialValue).toBe(string)
+    assert.type(state, "undefined")
+    assert.equal(stateWithInitialValue, string)
+    assert.equal(stateWithLazyInitialValue, string)
   })
 
-  test("should merge arrays, plain objects, maps and sets", () => {
+  it("should merge arrays, plain objects, maps and sets", () => {
     const { result: resultAb } = renderHook(() => useMergeState(a))
     const { result: resultCd } = renderHook(() => useMergeState(c))
     const { result: resultEf } = renderHook(() => useMergeState(e))
@@ -92,13 +94,13 @@ describe("useMergeState", () => {
     const [stateEf] = resultEf.current
     const [stateGh] = resultGh.current
 
-    expect(stateAb).toStrictEqual(ab)
-    expect(stateCd).toStrictEqual(cd)
-    expect(stateEf).toStrictEqual(ef)
-    expect(stateGh).toStrictEqual(gh)
+    assert.equal(stateAb, ab)
+    assert.equal(stateCd, cd)
+    assert.equal(stateEf, ef)
+    assert.equal(stateGh, gh)
   })
 
-  test("should accept functional updates", () => {
+  it("should accept functional updates", () => {
     const { result } = renderHook(() => useMergeState(string))
     const { result: resultAb } = renderHook(() => useMergeState(a))
     const { result: resultCd } = renderHook(() => useMergeState(c))
@@ -125,14 +127,14 @@ describe("useMergeState", () => {
     const [stateEf] = resultEf.current
     const [stateGh] = resultGh.current
 
-    expect(state).toBe(`${string}-${string}`)
-    expect(stateAb).toStrictEqual(aab)
-    expect(stateCd).toStrictEqual(ccd)
-    expect(stateEf).toStrictEqual(eef)
-    expect(stateGh).toStrictEqual(ggh)
+    assert.equal(state, `${string}-${string}`)
+    assert.equal(stateAb, aab)
+    assert.equal(stateCd, ccd)
+    assert.equal(stateEf, eef)
+    assert.equal(stateGh, ggh)
   })
 
-  test("should accept options either on instances, on updates or on both", () => {
+  it("should accept options either on instances, on updates or on both", () => {
     const { result } = renderHook(() => useMergeState(a))
     const { result: resultInstance } = renderHook(() =>
       useMergeState(a, { merge: false })
@@ -159,13 +161,13 @@ describe("useMergeState", () => {
     const [stateUpdate] = resultUpdate.current
     const [stateBoth] = resultBoth.current
 
-    expect(state).toStrictEqual(ab)
-    expect(stateInstance).toStrictEqual(b)
-    expect(stateUpdate).toStrictEqual(b)
-    expect(stateBoth).toStrictEqual(ab)
+    assert.equal(state, ab)
+    assert.equal(stateInstance, b)
+    assert.equal(stateUpdate, b)
+    assert.equal(stateBoth, ab)
   })
 
-  test("should override when the merge option is set to false", () => {
+  it("should override when the merge option is set to false", () => {
     const { result: resultAb } = renderHook(() => useMergeState(a))
     const { result: resultCd } = renderHook(() => useMergeState(c))
     const { result: resultEf } = renderHook(() => useMergeState(e))
@@ -188,9 +190,9 @@ describe("useMergeState", () => {
     const [stateEf] = resultEf.current
     const [stateGh] = resultGh.current
 
-    expect(stateAb).toStrictEqual(b)
-    expect(stateCd).toStrictEqual(d)
-    expect(stateEf).toStrictEqual(f)
-    expect(stateGh).toStrictEqual(h)
+    assert.equal(stateAb, b)
+    assert.equal(stateCd, d)
+    assert.equal(stateEf, f)
+    assert.equal(stateGh, h)
   })
 })

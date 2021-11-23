@@ -1,5 +1,7 @@
+import * as assert from "uvu/assert"
 import { merge } from "../../src/utils/merge"
 import { boolean, fun, number, string } from "../constants"
+import { describe } from "../helpers"
 
 const a = [number, boolean]
 const b = [string, number]
@@ -29,34 +31,37 @@ const gh = new Set<number | string>()
 gh.add(number)
 gh.add(string)
 
-describe("merge", () => {
-  test("should merge two arrays", () => {
-    expect(merge(a, b)).toStrictEqual(ab)
+describe("merge", (it) => {
+  it("should merge two arrays", () => {
+    assert.equal(merge(a, b), ab)
   })
 
-  test("should merge two plain objects", () => {
-    expect(merge(c, d)).toStrictEqual(cd)
+  it("should merge two plain objects", () => {
+    assert.equal(merge(c, d), cd)
   })
 
-  test("should merge two maps", () => {
-    expect(merge(e, f)).toStrictEqual(ef)
+  it("should merge two maps", () => {
+    assert.equal(merge(e, f), ef)
   })
 
-  test("should merge two sets", () => {
-    expect(merge(g, h)).toStrictEqual(gh)
+  it("should merge two sets", () => {
+    assert.equal(merge(g, h), gh)
   })
 
-  test("should override any other types", () => {
-    expect(merge("ipsum", string)).toStrictEqual(string)
-    expect(merge(false, boolean)).toStrictEqual(boolean)
-    expect(merge(4, number)).toStrictEqual(number)
-    expect(merge(() => number, fun)).toStrictEqual(fun)
+  it("should override any other types", () => {
+    assert.equal(merge("ipsum", string), string)
+    assert.equal(merge(false, boolean), boolean)
+    assert.equal(merge(4, number), number)
+    assert.equal(
+      merge(() => number, fun),
+      fun
+    )
   })
 
-  test("should override different types", () => {
-    expect(merge(a, string)).toStrictEqual(string)
-    expect(merge(c, boolean)).toStrictEqual(boolean)
-    expect(merge(e, number)).toStrictEqual(number)
-    expect(merge(g, fun)).toStrictEqual(fun)
+  it("should override different types", () => {
+    assert.equal(merge(a, string), string)
+    assert.equal(merge(c, boolean), boolean)
+    assert.equal(merge(e, number), number)
+    assert.equal(merge(g, fun), fun)
   })
 })
