@@ -19,7 +19,12 @@ export function isNumber(value: number | unknown): value is number {
 export function isPlainObject<T, U extends PlainObject>(
   value: PlainObject<T> | U | unknown
 ): value is PlainObject<T> | U {
-  return typeof value === "object" && value?.constructor === Object
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    value.constructor === Object &&
+    Object.getPrototypeOf(value) === Object.prototype
+  )
 }
 
 export function isSet<T>(value: Set<T> | unknown): value is Set<T> {
