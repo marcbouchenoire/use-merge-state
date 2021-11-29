@@ -22,15 +22,17 @@
   },
   "sideEffects": false,
   "source": "./src/index.ts",
-  "main": "./dist/use-merge-state.js",
-  "unpkg": "./dist/use-merge-state.umd.js",
-  "module": "./dist/use-merge-state.module.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.module.js",
+  "modern": "./dist/index.mjs",
   "exports": {
     ".": {
-      "require": "./dist/use-merge-state.js",
-      "import": "./dist/use-merge-state.modern.js",
-      "types": "./dist/index.d.ts"
-    }
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.module.js",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "types": "./dist/index.d.ts",
   "prettier": "@bouchenoiremarc/prettier-config",
