@@ -2,15 +2,15 @@
 
 🗜️ A `useState` variant hook that merges updates from arrays, plain objects, maps or sets.
 
-[![build](https://img.shields.io/github/workflow/status/bouchenoiremarc/use-merge-state/CI)](https://github.com/bouchenoiremarc/use-merge-state/actions/workflows/ci.yml)
+[![build](https://img.shields.io/github/workflow/status/marcbouchenoire/use-merge-state/CI)](https://github.com/marcbouchenoire/use-merge-state/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/use-merge-state?color=%230cf)](https://www.npmjs.com/package/use-merge-state)
 [![size](https://img.shields.io/bundlephobia/minzip/use-merge-state?label=size&color=%2385f)](https://bundlephobia.com/package/use-merge-state)
-[![coverage](https://img.shields.io/codecov/c/github/bouchenoiremarc/use-merge-state?color=%23e4b)](https://codecov.io/gh/bouchenoiremarc/use-merge-state)
-[![license](https://img.shields.io/github/license/bouchenoiremarc/use-merge-state?color=%23f81)](https://github.com/bouchenoiremarc/use-merge-state/blob/main/LICENSE)
+[![coverage](https://img.shields.io/codecov/c/github/marcbouchenoire/use-merge-state?color=%23e4b)](https://codecov.io/gh/marcbouchenoire/use-merge-state)
+[![license](https://img.shields.io/github/license/marcbouchenoire/use-merge-state?color=%23f81)](https://github.com/marcbouchenoire/use-merge-state/blob/main/LICENSE)
 
 - 📚 **Simple**: A drop-in `useState` replacement
 - 🗜️ **Tiny**: Just around **600 bytes** on modern platforms
-- 🧪 **Reliable**: Fully tested with [100% code coverage](https://codecov.io/gh/bouchenoiremarc/use-merge-state)
+- 🧪 **Reliable**: Fully tested with [100% code coverage](https://codecov.io/gh/marcbouchenoire/use-merge-state)
 - 📦 **Typed**: Written in [TypeScript](https://www.typescriptlang.org/) and includes definitions out-of-the-box
 - 💨 **Zero dependencies**
 
