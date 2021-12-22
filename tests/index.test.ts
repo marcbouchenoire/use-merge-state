@@ -1,8 +1,8 @@
 import { act, renderHook } from "@testing-library/react-hooks"
 import * as assert from "uvu/assert"
-import { merge, useMergeState } from "../../src"
-import { boolean, number, string } from "../constants"
-import { describe } from "../helpers"
+import { merge, useMergeState } from "../src"
+import { boolean, number, string } from "./constants"
+import { describe } from "./helpers"
 
 interface CD {
   a?: number | string
