@@ -1,16 +1,16 @@
 import { PlainFunction, PlainObject, Unpack } from "./types"
 
 /**
- * Return whether the value is an array.
+ * Whether the value is an array.
  *
- * @param value - The value to be checked.
+ * @param value - The value to check.
  */
 export const isArray = Array.isArray
 
 /**
- * Return whether the value is a function.
+ * Whether the value is a function.
  *
- * @param value - The value to be checked.
+ * @param value - The value to check.
  */
 export function isFunction<T extends PlainFunction>(
   value: T | unknown
@@ -19,27 +19,27 @@ export function isFunction<T extends PlainFunction>(
 }
 
 /**
- * Return whether the value is a Map.
+ * Whether the value is a map.
  *
- * @param value - The value to be checked.
+ * @param value - The value to check.
  */
 export function isMap<T, U>(value: Map<T, U> | unknown): value is Map<T, U> {
   return value instanceof Map
 }
 
 /**
- * Return whether the value is a number.
+ * Whether the value is a number.
  *
- * @param value - The value to be checked.
+ * @param value - The value to check.
  */
 export function isNumber(value: number | unknown): value is number {
   return typeof value === "number"
 }
 
 /**
- * Return whether the value is a plain object.
+ * Whether the value is a plain object.
  *
- * @param value - The value to be checked.
+ * @param value - The value to check.
  */
 export function isPlainObject<T, U extends PlainObject>(
   value: PlainObject<T> | U | unknown
@@ -53,9 +53,9 @@ export function isPlainObject<T, U extends PlainObject>(
 }
 
 /**
- * Return whether the value is a Set.
+ * Whether the value is a set.
  *
- * @param value - The value to be checked.
+ * @param value - The value to check.
  */
 export function isSet<T>(value: Set<T> | unknown): value is Set<T> {
   return value instanceof Set

@@ -4,6 +4,9 @@ import { getReturnValue } from "./utils/get-return-value"
 import { merge } from "./utils/merge"
 
 interface MergeOptions {
+  /**
+   * Whether to merge values when set.
+   */
   merge?: boolean
 }
 
@@ -15,7 +18,7 @@ const defaultOptions: MergeOptions = {
  * Create a state and merge updates from arrays, plain objects, maps or sets.
  *
  * @param initial - The initial value.
- * @param [options] - An optional set of options.
+ * @param [options] - An optional set of settings.
  * @param [options.merge] - Whether to merge values when set.
  * @returns A stateful value, and a function to update it.
  *

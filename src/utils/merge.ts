@@ -48,20 +48,20 @@ const mergePlainObjects: MergePlainObjects = <
 }
 
 /**
- * Merge two Map objects.
+ * Merge two maps.
  *
- * @param a - The first Map.
- * @param b - The second Map.
+ * @param a - The first map.
+ * @param b - The second map.
  */
 const mergeMaps: MergeMaps = <A, B, C, D>(a: Map<A, C>, b: Map<B, D>) => {
   return new Map([...a, ...b] as [A | B, C | D][])
 }
 
 /**
- * Merge two Set objects.
+ * Merge two sets.
  *
- * @param a - The first Set.
- * @param b - The second Set.
+ * @param a - The first set.
+ * @param b - The second set.
  */
 const mergeSets: MergeSets = <A, B>(a: Set<A>, b: Set<B>) => {
   return new Set([...a, ...b])
