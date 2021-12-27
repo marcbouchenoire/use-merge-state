@@ -14,7 +14,7 @@ const defaultOptions: MergeOptions = {
   merge: true
 }
 
-/**.
+/**
  * Create a state and merge updates from arrays, plain objects, maps or sets.
  *
  * @param initial - The initial value.
