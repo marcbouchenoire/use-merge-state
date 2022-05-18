@@ -70,7 +70,7 @@
   "devDependencies": {
     "@marcbouchenoire/eslint-config": "^2.4.2",
     "@marcbouchenoire/prettier-config": "^1.1.0",
-    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-hooks": "^8.0.0",
     "@types/react": "^18.0.3",
     "eslint": "^8.5.0",
     "husky": "4.3.8",
