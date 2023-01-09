@@ -4,13 +4,22 @@ import { merge, useMergeState } from "../src"
 import { boolean, number, string } from "./constants"
 import { describe } from "./helpers"
 
-/* eslint-disable jsdoc/require-jsdoc */
 interface CD {
+  /**
+   * A number or a string.
+   */
   a?: number | string
+
+  /**
+   * A boolean.
+   */
   b?: boolean
+
+  /**
+   * A number.
+   */
   c?: number
 }
-/* eslint-enable jsdoc/require-jsdoc */
 
 const a = [number, number * number]
 const b = [number * 2]
