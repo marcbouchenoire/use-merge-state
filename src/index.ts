@@ -1,5 +1,6 @@
-import { SetStateAction, useCallback, useMemo, useState } from "react"
-import { DispatchWithOptions } from "./types"
+import type { SetStateAction } from "react"
+import { useCallback, useMemo, useState } from "react"
+import type { DispatchWithOptions } from "./types"
 import { getReturnValue } from "./utils/get-return-value"
 import { merge } from "./utils/merge"
 
