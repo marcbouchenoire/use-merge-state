@@ -2,7 +2,7 @@
 
 🗜️ A `useState` variant hook that merges updates from arrays, plain objects, maps or sets.
 
-[![build](https://img.shields.io/github/workflow/status/marcbouchenoire/use-merge-state/CI)](https://github.com/marcbouchenoire/use-merge-state/actions/workflows/ci.yml)
+[![build](https://img.shields.io/github/actions/workflow/status/marcbouchenoire/use-merge-state/.github/workflows/ci.yml)](https://github.com/marcbouchenoire/use-merge-state/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/use-merge-state?color=%230cf)](https://www.npmjs.com/package/use-merge-state)
 [![size](https://img.shields.io/bundlephobia/minzip/use-merge-state?label=size&color=%2385f)](https://bundlephobia.com/package/use-merge-state)
 [![coverage](https://img.shields.io/codecov/c/github/marcbouchenoire/use-merge-state?color=%23e4b)](https://codecov.io/gh/marcbouchenoire/use-merge-state)
