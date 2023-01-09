@@ -44,7 +44,7 @@ export function useMergeState<S = undefined>(): [
 export function useMergeState<S>(
   initial?: any,
   options: MergeOptions = defaultOptions
-): [S, DispatchWithOptions<SetStateAction<S>>] {
+): [S, DispatchWithOptions<SetStateAction<S>, MergeOptions>] {
   const [state, setState] = useState<S>(initial)
   const instanceOptions = useMemo(
     () => ({ ...defaultOptions, ...options }),
