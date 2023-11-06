@@ -16,20 +16,6 @@
 
 ## Installation
 
-#### Skypack
-
-```javascript
-import { useMergeState } from "https://cdn.skypack.dev/use-merge-state"
-```
-
-#### Yarn
-
-```bash
-yarn add use-merge-state
-```
-
-#### npm
-
 ```bash
 npm install use-merge-state
 ```
